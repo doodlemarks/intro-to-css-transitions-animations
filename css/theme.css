@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,700");
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  background: #0d1516;
+  color: #fff;
+  overflow-x: hidden; }
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  color: #fdee94; }
+
+h1 {
+  font-size: 48px; }
+
+h2 {
+  font-size: 36px; }
+
+h3 {
+  font-size: 32px; }
+
+h4 {
+  font-size: 26px; }
+
+h5 {
+  font-size: 20px; }
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch; }
+  section:nth-child(even) .tutorial {
+    background: #131e20; }
+  section a {
+    color: #ff5555; }
+  section .title, section .tutorial, section .example, section .fact {
+    flex-grow: 1;
+    display: flex;
+    align-items: center; }
+  section .title {
+    padding: 1em; }
+    section .title h1 {
+      font-size: 76px;
+      color: #fdee94;
+      margin-bottom: 0; }
+    section .title h1, section .title p {
+      position: relative;
+      z-index: 2; }
+    section .title #opener-animation {
+      position: absolute;
+      z-index: 1;
+      right: 500px;
+      top: 50%;
+      height: 300px;
+      transform: translateY(-50%);
+      perspective: 1000px; }
+@keyframes opener-animation {
+  0% {
+    transform: translate(-300px, -300px) rotateY(0) rotateX(0);
+    border-radius: 0; }
+  25% {
+    transform: translate(300px, -300px) rotateY(180deg) rotateX(0);
+    background: #5794ff;
+    border-radius: 200px;
+    box-shadow: 0 0 100px #5794ff; }
+  50% {
+    transform: translate(300px, 300px) rotateY(0) rotateX(180deg);
+    background: #fdee94;
+    border-radius: 0;
+    box-shadow: 0 0 100px #fdee94; }
+  75% {
+    transform: translate(-300px, 300px) rotateY(180deg) rotateX(0);
+    background: #62ff5a;
+    border-radius: 200px;
+    box-shadow: 0 0 100px #62ff5a; }
+  100% {
+    transform: translate(-300px, -300px) rotateY(0) rotateX(0);
+    border-radius: 0; } }
+      section .title #opener-animation span {
+        display: block;
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        background: #ff5555;
+        border-radius: 0;
+        box-shadow: 0 0 100px #ff5555;
+        transform: translate(-300px, -300px);
+        animation: opener-animation 5s infinite; }
+  section .inner {
+    width: 100%;
+    padding: 2em; }
+  section .fact {
+    text-align: center; }
+    section .fact .inner {
+      margin: 0 auto;
+      max-width: 1440px;
+      background: black; }
+      section .fact .inner code {
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto; }
+  section .tutorial {
+    width: 55%; }
+  section code {
+    max-width: 100%;
+    max-height: 600px;
+    overflow-y: auto;
+    margin: .5em 0;
+    padding: 1em 2em;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 18px;
+    text-align: left;
+    background: #000;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    display: block;
+    unicode-bidi: embed;
+    font-family: monospace;
+    white-space: pre-wrap;
+    overflow-x: auto; }
+    section code:after {
+      content: "";
+      display: table;
+      clear: both; }
+  section .example {
+    width: 45%;
+    color: #0d1516;
+    background: #fff; }
+    section .example .inner {
+      display: flex;
+      align-items: center;
+      flex-direction: column; }
+
+.closer {
+  position: relative;
+  overflow: hidden; }
+  .closer:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    opacity: .25;
+    background: url(../images/shrek.gif) center no-repeat rgba(13, 21, 22, 0.5);
+    background-size: cover; }
+
+/*# sourceMappingURL=theme.css.map */

@@ -1,0 +1,185 @@
+@import 'colors.scss';
+
+.animation {
+  .example1 {
+    .example {
+
+      @keyframes wiggle {
+        from   { transform: rotate(-15deg); }
+        to     { transform: rotate(15deg); }
+      }
+
+      .block {
+        display: block;
+        width: 300px;
+        height: 300px;
+        background: $red;
+        animation: wiggle 1s infinite;
+      }
+    }
+  }
+  .example2 {
+    .example {
+
+      @keyframes wiggle {
+        from   { transform: rotate(-15deg); }
+        to     { transform: rotate(15deg); }
+      }
+
+      .block {
+        display: block;
+        width: 300px;
+        height: 300px;
+        background: $red;
+        animation: wiggle 1s infinite alternate;
+      }
+    }
+  }
+  .example3 {
+    .example {
+
+      @keyframes rope-a-dope {
+        0%   { transform: translate( 0, 0); }
+        25%  { transform: translate( 100px, 0); background: $blue; border-radius: 40px; }
+        50%  { transform: translate( 100px, 100px); background: $yellow; border-radius: 100px; }
+        75%  { transform: translate( 0, 100px); background: $green; border-radius: 40px; }
+        100% { transform: translate( 0, 0); }
+      }
+
+      .block {
+        display: block;
+        width: 300px;
+        height: 300px;
+        background: $red;
+        animation: rope-a-dope 4s infinite;
+      }
+    }
+  }
+
+  .example4 {
+
+    $gray: #d3d0e3;
+    $gray-light: lighten($gray, 5);
+    $gray-dark: darken($gray, 5);
+    $green: #33ca61;
+    $red: #ff5555;
+
+    .example {
+
+      .browser {
+        position: relative;
+        height: 400px;
+        width: 600px;
+        border-radius: 20px;
+        background: $blue;
+        box-shadow: 0 15px 30px rgba($black, 0.25);
+      }
+
+      #open-flyout {
+        margin: 20px;
+
+        .notification-count {
+          display: inline-block;
+          color: $white;
+          background: $red;
+          border-radius: 100%;
+          min-width: 23px;
+        }
+      }
+
+      button {
+        padding: .25em .5em;
+        color: $black;
+        font-weight: bold;
+        background: $white;
+        border-radius: 4px;
+        border: 0;
+        background: $gray;
+        box-shadow: 0 2px 3px rgba($black, 0.2), 0 0 0 1px rgba($black, 0.5);
+        cursor: pointer;
+        outline: 0;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: $gray-light;
+        }
+        &:active {
+          background: $gray-dark;
+        }
+      }
+
+      .flyout {
+        float: right;
+        height: 400px;
+        width: 240px;
+        background: $white;
+        border-radius: 0 20px 20px 0;
+        box-shadow: none;
+        transform: translateX(240px);
+        opacity: 0;
+        transition: all .5s ease-out;
+
+        &.show {
+          opacity: 1;
+          transform: translateX(0);
+          box-shadow: 0 0 70px rgba($black, 0.25);
+        }
+
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+
+          li {
+            display: block;
+            height: 33px;
+            padding: 1em;
+            border-bottom: 1px solid $gray-light;
+            transition: all 5s ease;
+
+            @keyframes approved {
+              0%   { background: $white; color: $black; }
+              50%  { transform: translate( 0, 0); color: $white; background: $green; border-bottom-color: $green; opacity: 1; position: relative;}
+              100% { transform: translate( 80px, -40px) rotate(15deg); background: $green; border-bottom-color: $green; opacity: 0; position: absolute; }
+            }
+
+            @keyframes denied {
+              0%   { background: $white; color: $black; }
+              50%  { transform: translate( 0, 0); color: $white; background: $red; border-bottom-color: $red;}
+              100% { transform: translate( 80px, -40px) rotate(15deg); background: $red; border-bottom-color: $red; opacity: 0; position: absolute; }
+            }
+
+            &.status {
+              pointer-events: none;
+
+              &.approved {
+                animation: approved 1s forwards ease;
+              }
+
+              &.denied {
+                animation: denied 1s forwards ease;
+              }
+            }
+
+            p {
+              float: left;
+              margin: 0 10px 0 0;
+              line-height: 1;
+              padding: 7px 0;
+            }
+
+            button {
+              &.approve {
+                color: $green;
+              }
+
+              &.deny {
+                color: $red;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

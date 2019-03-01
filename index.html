@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CSS Animations by Mark Peck</title>
+	<link rel="stylesheet" href="css/all.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<script src="js/prettify-css.js"></script>
+
+</head>
+
+<body>
+
+
+<div class="transition">
+
+	<section>
+		<div class="title">
+			<div class="inner">
+				<h1>CSS Transitions &amp; Animations</h1>
+				<p>feat. Mark (or Kram if you spell it backwards)</p>
+
+				<div id="opener-animation">
+					<span></span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="fact">
+			<div class="inner">
+				<h1>Transitions</h1>
+				<p>Transition syntax:</p>
+				<code class="prettyprint lang-css">
+div {
+ transition: background-color 2s ease 1s;
+}
+				</code>
+			</div>
+		</div>
+	</section>
+
+  <section class="example1">
+    <div class="tutorial">
+      <div class="inner">
+        <h2>Super basic transition on hover</h2>
+        <p>Transition applied to hover state only with one property being transitioned. Marky no likey.</p>
+        <code class="prettyprint lang-css">
+.block {
+  display: block;
+  width: 300px;
+  height: 300px;
+  background: $red;
+
+  &:hover {
+    background: $blue;
+    transition: background-color 2s ease;
+  }
+}
+        </code>
+      </div>
+    </div>
+    <div class="example">
+      <div class="inner">
+        <div class="block"></div>
+      </div>
+    </div>
+  </section>
+
+	<section class="example2">
+    <div class="tutorial">
+      <div class="inner">
+				<h2>Element hover transition but better</h2>
+        <p>Transition applied to element which allows for easing of multiple properties when hovering on and off. This Marky likey.</p>
+				<code class="prettyprint lang-css">
+.block {
+  display: block;
+  width: 300px;
+  height: 300px;
+  background: $red;
+  transition: all 2s ease;
+
+  &:hover {
+    background: $blue;
+    border-radius: 100px;
+  }
+}
+        </code>
+      </div>
+    </div>
+    <div class="example">
+      <div class="inner">
+        <div class="block"></div>
+      </div>
+    </div>
+  </section>
+
+	<section class="example3">
+    <div class="tutorial">
+      <div class="inner">
+				<h2>Element hover staggered transition</h2>
+        <p>Transition property accepts multiple property specifications.</p>
+					<code class="prettyprint lang-css">
+.block {
+  display: block;
+  width: 300px;
+  height: 300px;
+  background: $red;
+  transition: background-color 1s ease,
+              border-radius 2s ease 1s;
+
+  &:hover {
+    background: $blue;
+    border-radius: 100px;
+  }
+}
+				</code>
+      </div>
+    </div>
+    <div class="example">
+      <div class="inner">
+        <div class="block"></div>
+      </div>
+    </div>
+  </section>
+
+	<section class="example4">
+    <div class="tutorial">
+      <div class="inner">
+				<h2>A real world scenario (kinda)</h2>
+        <p>I heard you like transitions. So I put transitions on your transitions with more transitions. But really I just am transtioning between multiple states with loads or properties.</p>
+					<code class="prettyprint lang-css">
+a {
+  display: block;
+  padding: 20px 30px;
+  color: $white;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: 0 1px 2px rgba($black, 0.2);
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba($black, 0.2);
+  background: $red;
+  transition: all 0.4s ease;
+
+  &:hover {
+    background: lighten($red, 5);
+    box-shadow: 0 10px 40px rgba($black, 0.4);
+    transform: translateY(-4px);
+  }
+
+  &:active {
+    color: rgba($white, 0.75);
+    text-shadow: none;
+    background: darken($red, 5);
+    box-shadow: inset 0 0 30px rgba($black, 0.4);
+    transform: translateY(-2px) scale(0.95);
+  }
+}
+				</code>
+      </div>
+    </div>
+    <div class="example">
+      <div class="inner">
+        <a href="https://www.youtube.com/watch?v=q6-ZGAGcJrk" target="_blank">Let's get spooky!</a>
+      </div>
+    </div>
+  </section>
+
+	<section>
+		<div class="fact">
+			<div class="inner">
+				<h1>You may be asking yourself...</h1>
+				<p>Mark, but what can properties can be transitioned/animated? <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">MDN has an extensive list made just for you!</a></p>
+				<p>or</p>
+				<p>Mark, why do hot dogs come 10 to a package while the buns come in packages of 8? Some mysteries should remain unsolved you silly silly goose.</p>
+			</div>
+		</div>
+	</section>
+
+</div>
+
+<div class="animation">
+
+	<section>
+		<div class="fact">
+			<div class="inner">
+				<h1>Animations</h1>
+				<p>Animation syntax:</p>
+				<code class="prettyprint lang-css">
+@keyframes YOUR-DANK-ANIMATION {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+div {
+  animation: YOUR-DANK-ANIMATION 1s infinite;
+}
+				</code>
+			</div>
+		</div>
+	</section>
+
+	<section class="example1">
+    <div class="tutorial">
+      <div class="inner">
+        <h2>Basic keyframe animation</h2>
+        <p>Animation uses "from" and "to" to establish a start and end to a very simple keyframe animation.</p>
+        <code class="prettyprint lang-css">
+@keyframes wiggle {
+  from   { transform: rotate(-15deg); }
+  to     { transform: rotate(15deg); }
+}
+
+.block {
+  display: block;
+  width: 300px;
+  height: 300px;
+  background: $red;
+  animation: wiggle 1s infinite;
+}
+        </code>
+      </div>
+    </div>
+    <div class="example">
+      <div class="inner">
+        <div class="block"></div>
+      </div>
+    </div>
+  </section>
+
+	<section class="example2">
+    <div class="tutorial">
+      <div class="inner">
+        <h2>A better keyframe animation</h2>
+        <p>Adding in "animation-direction: alternate;" tells the animation to run in reverse to make a complete seamless animation.</p>
+        <code class="prettyprint lang-css">
+@keyframes wiggle {
+  from   { transform: rotate(-15deg); }
+  to     { transform: rotate(15deg); }
+}
+
+.block {
+  display: block;
+  width: 300px;
+  height: 300px;
+  background: $red;
+  animation: wiggle 1s infinite alternate;
+}
+				</code>
+      </div>
+    </div>
+    <div class="example">
+      <div class="inner">
+        <div class="block"></div>
+      </div>
+    </div>
+  </section>
+
+	<section class="example3">
+    <div class="tutorial">
+      <div class="inner">
+        <h2>More advanced multiple steps animation</h2>
+        <p>You can specify percentage stops in animation to do more advanced animations.</p>
+        <code class="prettyprint lang-css">
+@keyframes rope-a-dope {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(100px, 0); background: $blue; border-radius: 40px; }
+  50%  { transform: translate(100px, 100px); background: $yellow; border-radius: 100px; }
+  75%  { transform: translate(0, 100px); background: $green; border-radius: 40px; }
+  100% { transform: translate(0, 0); }
+}
+
+.block {
+  display: block;
+  width: 300px;
+  height: 300px;
+  background: $red;
+  animation: rope-a-dope 4s infinite;
+}
+				</code>
+      </div>
+    </div>
+    <div class="example">
+      <div class="inner">
+        <div class="block"></div>
+      </div>
+    </div>
+  </section>
+
+	<section>
+		<div class="fact">
+			<div class="inner">
+				<h1>Random semi-related trick or X-TREME HACK</h1>
+				<p>You can enable hardware acceleration via user system's GPU to increase animation performance. How??? Apply this to the element that is being transitioned or animated:</p>
+				<code class="prettyprint lang-css">
+transform: translate3d(0, 0, 0);
+				</code>
+
+				<p>Check out <a href="https://blog.teamtreehouse.com/increase-your-sites-performance-with-hardware-accelerated-css" target="_blank">this link</a> to learn even more.</p>
+
+			</div>
+		</div>
+	</section>
+
+	<section class="example4">
+    <div class="tutorial">
+      <div class="inner">
+        <h2>Let's get fancy with transitions AND animations</h2>
+        <p>What if we had some project where some SILLY DILLY of a designer wanted a flyout?! Using a tiny bit of jQuery and some CSS we can achieve this new UX pretty easily.</p>
+        <code class="prettyprint lang-css">
+.flyout {
+  transform: translateX(240px);
+  opacity: 0;
+  transition: all .5s ease-out;
+
+  &.show {
+    opacity: 1;
+    transform: translateX(0);
+    box-shadow: 0 0 70px rgba($black, 0.25);
+  }
+}
+
+@keyframes approved {
+  0%   { background: $white; color: $black; }
+  50%  { transform: translate( 0, 0); color: $white; background: $green; border-bottom-color: $green; opacity: 1; position: relative;}
+  100% { transform: translate( 80px, -40px) rotate(15deg); background: $green; border-bottom-color: $green; opacity: 0; position: absolute; }
+}
+
+@keyframes denied {
+  0%   { background: $white; color: $black; }
+  50%  { transform: translate( 0, 0); color: $white; background: $red; border-bottom-color: $red;}
+  100% { transform: translate( 80px, -40px) rotate(15deg); background: $red; border-bottom-color: $red; opacity: 0; position: absolute; }
+}
+
+&.status {
+  &.approved {
+    animation: approved 1s forwards ease;
+  }
+
+  &.denied {
+    animation: denied 1s forwards ease;
+  }
+}
+
+				</code>
+      </div>
+    </div>
+    <div class="example">
+      <div class="inner">
+				<div class="browser">
+					<button id="open-flyout"><span class="notification-count">3</span> Notifications</button>
+	        <div class="flyout">
+						<ul>
+							<li>
+								<p>Dank or not?</p>
+								<button class="approve">✔</button>
+	  						<button class="deny">✖</button>
+							</li>
+							<li>
+								<p>Dank or not?</p>
+								<button class="approve">✔</button>
+	  						<button class="deny">✖</button>
+							</li>
+							<li>
+								<p>Dank or not?</p>
+								<button class="approve">✔</button>
+	  						<button class="deny">✖</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+      </div>
+    </div>
+  </section>
+
+	<section class="closer">
+		<div class="title">
+			<div class="inner">
+				<h1>That's all folks!</h1>
+				<p>Go forth and animate all the things. Except for making snow fall in our app. Don't ever do this.</p>
+			</div>
+		</div>
+	</section>
+
+
+<script type="javascript">
+
+	$('#open-flyout').click(function() {
+		$('.flyout').toggleClass('show');
+	});
+
+</script>
+
+
+</div>
+
+</body>
+</html>
